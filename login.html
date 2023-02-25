@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/css/stylelogin.css">
+    <title>Login</title>
+</head>
+<body>
+    <div class="main-login">
+        <div class="left-login">
+            <h1>Faça Login <br> E Aproveite</h1>
+            <img src="/src/img/leitor.svg" class="left-login-image" alt="Leitoraanimação">
+        </div>
+        <div class="right-login">
+            <div class="card-login">
+                <h1>LOGIN</h1>
+                <form>
+                <div class="textfield">
+                    <label for="usuario">Usuário</label>
+                    <input type="text" placeholder="Usuario" id="login">
+                </div>
+                <div class="textfield">
+                    <label for="senha">Senha</label>
+                    <input type="password" placeholder="Senha" id="senha">
+                </div>
+                    <div class="btn">
+                            <input type="submit" value="LOGIN" onclick="logar(); return false">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function logar(){
+            var login = document.getElementById('login').value;
+            var senha = document.getElementById('senha').value;
+
+            if(login == "admin" &&  senha == "admin"){  
+                Swal.fire({
+                    text: 'Login Efetuado',
+                    title: 'Seja bem vindo ao Voltaire!',
+                    icon: 'success',
+                    background: 'black',
+                    iconColor: 'blue'
+                })
+                .then((result) => {
+                    location.href="index.html";
+                })
+            }else{
+                Swal.fire({
+                    text: 'Acesso Negado',
+                    title: 'Usuario ou Senha incorretos!',
+                    icon: 'error',
+                    background: 'black',
+                    iconColor: 'blue'
+                })
+                
+            }
+        }
+    </script>
+</body>
+</html>
